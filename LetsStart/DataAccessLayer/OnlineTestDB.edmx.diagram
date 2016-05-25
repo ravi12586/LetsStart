@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="581fabdcbb4b4315be5b07420202622c" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblAnswer" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblGroupMember" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblGroup" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblQuestionAnswer" Width="1.5" PointX="10.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblQuestion" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblQuestionSubject" Width="1.5" PointX="10.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblSubject" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblTestQuestion" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblTest" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblTestUserQuestion" Width="1.5" PointX="10.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblTestUser" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblUser" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblUserType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblQuestionAnswer_tblAnswers" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTestUserQuestions_tblAnswers" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblGroupMembers_tblGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblGroupMembers_tblTests" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblGroupMembers_tblUserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblGroupMembers_tblUserModified" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblGroupMembers_tblUsesID" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblGroups_tblUserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblGroups_tblUserModified" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblQuestionAnswer_tblQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblQuestionSubject_tblQuestion" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTestQuestions_tblQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTestUserQuestions_tblQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblQuestionSubject_tblSubject" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTestQuestions_tblTests" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTests_tblUsersCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTests_tblUsersModified" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTestUsers_tblTests" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTestUserQuestions_tblTestUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblTestUsers_tblUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblUsersUID_tblUserCreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineTestDBModel.FK_tblUsersUID_tblUserModifiedBY" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OnlineTestDBModel.tblMenu" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

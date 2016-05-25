@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ModelLayer.MLMessages>
+
+
+
+
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="#" class="active">
+                <div>
+                    <strong>@Html.DisplayFor(modelItem => item.Host)</strong>
+                    <span class="pull-right text-muted">
+                        <em>@Html.DisplayFor(modelItem => item.Date)</em>
+                    </span>
+                </div>
+                <div>@Html.DisplayFor(modelItem => item.Message)</div>
+            </a>
+        </li>
+    <li class="divider"></li>
+    }
+

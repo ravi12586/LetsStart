@@ -1,0 +1,11 @@
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\BusinessLayer.dll
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\BusinessLayer.pdb
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\DataAccessLayer.dll
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\ModalLayer.dll
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\EntityFramework.dll
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\ModalLayer.pdb
+F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\EntityFramework.xml
+F:\Visual Studio2013\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+F:\Visual Studio2013\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.dll
+F:\Visual Studio2013\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.pdb

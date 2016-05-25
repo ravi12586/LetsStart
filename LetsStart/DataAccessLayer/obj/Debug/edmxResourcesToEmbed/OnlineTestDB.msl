@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OnlineTestDBModelStoreContainer" CdmEntityContainer="OnlineTestDBEntities">
+    <EntitySetMapping Name="tblAnswers">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblAnswer">
+        <MappingFragment StoreEntitySet="tblAnswers">
+          <ScalarProperty Name="AnsID" ColumnName="AnsID" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="AnswerDesc" ColumnName="AnswerDesc" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGroupMembers">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblGroupMember">
+        <MappingFragment StoreEntitySet="tblGroupMembers">
+          <ScalarProperty Name="GMID" ColumnName="GMID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TestID" ColumnName="TestID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGroups">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblGroup">
+        <MappingFragment StoreEntitySet="tblGroups">
+          <ScalarProperty Name="GID" ColumnName="GID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuestionAnswers">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblQuestionAnswer">
+        <MappingFragment StoreEntitySet="tblQuestionAnswers">
+          <ScalarProperty Name="QAID" ColumnName="QAID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+          <ScalarProperty Name="IsCorrectAns" ColumnName="IsCorrectAns" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuestions">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblQuestion">
+        <MappingFragment StoreEntitySet="tblQuestions">
+          <ScalarProperty Name="QID" ColumnName="QID" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="QuestionLevelID" ColumnName="QuestionLevelID" />
+          <ScalarProperty Name="IsStudyType" ColumnName="IsStudyType" />
+          <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuestionSubjects">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblQuestionSubject">
+        <MappingFragment StoreEntitySet="tblQuestionSubject">
+          <ScalarProperty Name="QSID" ColumnName="QSID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSubjects">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblSubject">
+        <MappingFragment StoreEntitySet="tblSubject">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTestQuestions">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblTestQuestion">
+        <MappingFragment StoreEntitySet="tblTestQuestions">
+          <ScalarProperty Name="TestQID" ColumnName="TestQID" />
+          <ScalarProperty Name="TestID" ColumnName="TestID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTests">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblTest">
+        <MappingFragment StoreEntitySet="tblTests">
+          <ScalarProperty Name="TestID" ColumnName="TestID" />
+          <ScalarProperty Name="TestName" ColumnName="TestName" />
+          <ScalarProperty Name="TestDuration" ColumnName="TestDuration" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTestUserQuestions">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblTestUserQuestion">
+        <MappingFragment StoreEntitySet="tblTestUserQuestions">
+          <ScalarProperty Name="TestUQID" ColumnName="TestUQID" />
+          <ScalarProperty Name="TestUserID" ColumnName="TestUserID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="SelectedAnswerID" ColumnName="SelectedAnswerID" />
+          <ScalarProperty Name="TimeTakenToMarkAnswer" ColumnName="TimeTakenToMarkAnswer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTestUsers">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblTestUser">
+        <MappingFragment StoreEntitySet="tblTestUsers">
+          <ScalarProperty Name="TestUID" ColumnName="TestUID" />
+          <ScalarProperty Name="TestID" ColumnName="TestID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="MarksObtained" ColumnName="MarksObtained" />
+          <ScalarProperty Name="TestGivenDate" ColumnName="TestGivenDate" />
+          <ScalarProperty Name="TestStartTime" ColumnName="TestStartTime" />
+          <ScalarProperty Name="TestEndTime" ColumnName="TestEndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserTypes">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblUserType">
+        <MappingFragment StoreEntitySet="tblUserType">
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeText" ColumnName="UserTypeText" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMenus">
+      <EntityTypeMapping TypeName="OnlineTestDBModel.tblMenu">
+        <MappingFragment StoreEntitySet="tblMenu">
+          <ScalarProperty Name="IsAdminMenu" ColumnName="IsAdminMenu" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ImageClass" ColumnName="ImageClass" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="NameOption" ColumnName="NameOption" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

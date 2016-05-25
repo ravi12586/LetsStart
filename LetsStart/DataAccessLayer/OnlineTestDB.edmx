@@ -1,0 +1,1345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OnlineTestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAnswers">
+          <Key>
+            <PropertyRef Name="AnsID" />
+          </Key>
+          <Property Name="AnsID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="500" />
+          <Property Name="AnswerDesc" Type="varchar(max)" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblGroupMembers">
+          <Key>
+            <PropertyRef Name="GMID" />
+          </Key>
+          <Property Name="GMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="TestID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedByID" Type="int" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblGroups">
+          <Key>
+            <PropertyRef Name="GID" />
+          </Key>
+          <Property Name="GID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedByID" Type="int" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOption" Type="varchar" MaxLength="50" />
+          <Property Name="Controller" Type="varchar" MaxLength="50" />
+          <Property Name="Action" Type="varchar" MaxLength="50" />
+          <Property Name="ImageClass" Type="varchar" MaxLength="50" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="IsParent" Type="bit" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="IsAdminMenu" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblQuestionAnswers">
+          <Key>
+            <PropertyRef Name="QAID" />
+          </Key>
+          <Property Name="QAID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionID" Type="bigint" />
+          <Property Name="AnswerID" Type="bigint" />
+          <Property Name="IsCorrectAns" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblQuestions">
+          <Key>
+            <PropertyRef Name="QID" />
+          </Key>
+          <Property Name="QID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="varchar" MaxLength="500" />
+          <Property Name="QuestionDesc" Type="varchar(max)" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="QuestionLevelID" Type="int" />
+          <Property Name="IsStudyType" Type="bit" />
+          <Property Name="IsMultipleAns" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblQuestionSubject">
+          <Key>
+            <PropertyRef Name="QSID" />
+          </Key>
+          <Property Name="QSID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionID" Type="bigint" />
+          <Property Name="SubjectID" Type="int" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblTestQuestions">
+          <Key>
+            <PropertyRef Name="TestQID" />
+          </Key>
+          <Property Name="TestQID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestID" Type="int" />
+          <Property Name="QuestionID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tblTests">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestName" Type="varchar" MaxLength="50" />
+          <Property Name="TestDuration" Type="time" Precision="7" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedByID" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblTestUserQuestions">
+          <Key>
+            <PropertyRef Name="TestUQID" />
+          </Key>
+          <Property Name="TestUQID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestUserID" Type="bigint" />
+          <Property Name="QuestionID" Type="bigint" />
+          <Property Name="SelectedAnswerID" Type="bigint" />
+          <Property Name="TimeTakenToMarkAnswer" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="tblTestUsers">
+          <Key>
+            <PropertyRef Name="TestUID" />
+          </Key>
+          <Property Name="TestUID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="TimeTaken" Type="time" Precision="7" />
+          <Property Name="MarksObtained" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TestGivenDate" Type="datetime" />
+          <Property Name="TestStartTime" Type="time" Precision="7" />
+          <Property Name="TestEndTime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="varchar" MaxLength="50" />
+          <Property Name="LName" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="UserTypeID" Type="int" />
+          <Property Name="LastLogin" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedByID" Type="int" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeText" Type="varchar" MaxLength="50" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <Association Name="FK_tblGroupMembers_tblGroups">
+          <End Role="tblGroups" Type="Self.tblGroups" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGroups">
+              <PropertyRef Name="GID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblTests">
+          <End Role="tblTests" Type="Self.tblTests" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTests">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblUserCreated">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblUserModified">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblUsesID">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroups_tblUserCreated">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblGroups" Type="Self.tblGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroups">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroups_tblUserModified">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblGroups" Type="Self.tblGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroups">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblQuestionAnswer_tblAnswers">
+          <End Role="tblAnswers" Type="Self.tblAnswers" Multiplicity="0..1" />
+          <End Role="tblQuestionAnswers" Type="Self.tblQuestionAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAnswers">
+              <PropertyRef Name="AnsID" />
+            </Principal>
+            <Dependent Role="tblQuestionAnswers">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblQuestionAnswer_tblQuestions">
+          <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="0..1" />
+          <End Role="tblQuestionAnswers" Type="Self.tblQuestionAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblQuestionAnswers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblQuestionSubject_tblQuestion">
+          <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="0..1" />
+          <End Role="tblQuestionSubject" Type="Self.tblQuestionSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblQuestionSubject">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblQuestionSubject_tblSubject">
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+          <End Role="tblQuestionSubject" Type="Self.tblQuestionSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="SID" />
+            </Principal>
+            <Dependent Role="tblQuestionSubject">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestQuestions_tblQuestions">
+          <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="0..1" />
+          <End Role="tblTestQuestions" Type="Self.tblTestQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblTestQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestQuestions_tblTests">
+          <End Role="tblTests" Type="Self.tblTests" Multiplicity="0..1" />
+          <End Role="tblTestQuestions" Type="Self.tblTestQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTests">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="tblTestQuestions">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTests_tblUsersCreated">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblTests" Type="Self.tblTests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblTests">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTests_tblUsersModified">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblTests" Type="Self.tblTests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblTests">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUserQuestions_tblAnswers">
+          <End Role="tblAnswers" Type="Self.tblAnswers" Multiplicity="0..1" />
+          <End Role="tblTestUserQuestions" Type="Self.tblTestUserQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAnswers">
+              <PropertyRef Name="AnsID" />
+            </Principal>
+            <Dependent Role="tblTestUserQuestions">
+              <PropertyRef Name="SelectedAnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUserQuestions_tblQuestions">
+          <End Role="tblQuestions" Type="Self.tblQuestions" Multiplicity="0..1" />
+          <End Role="tblTestUserQuestions" Type="Self.tblTestUserQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblTestUserQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUserQuestions_tblTestUsers">
+          <End Role="tblTestUsers" Type="Self.tblTestUsers" Multiplicity="0..1" />
+          <End Role="tblTestUserQuestions" Type="Self.tblTestUserQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTestUsers">
+              <PropertyRef Name="TestUID" />
+            </Principal>
+            <Dependent Role="tblTestUserQuestions">
+              <PropertyRef Name="TestUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUsers_tblTests">
+          <End Role="tblTests" Type="Self.tblTests" Multiplicity="0..1" />
+          <End Role="tblTestUsers" Type="Self.tblTestUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTests">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="tblTestUsers">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUsers_tblUsers">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblTestUsers" Type="Self.tblTestUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblTestUsers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUID_tblUserCreatedBy">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblUsers1" Type="Self.tblUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblUsers1">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUID_tblUserModifiedBY">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblUsers1" Type="Self.tblUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblUsers1">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OnlineTestDBModelStoreContainer">
+          <EntitySet Name="tblAnswers" EntityType="Self.tblAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGroupMembers" EntityType="Self.tblGroupMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGroups" EntityType="Self.tblGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMenu" EntityType="Self.tblMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblQuestionAnswers" EntityType="Self.tblQuestionAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblQuestions" EntityType="Self.tblQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblQuestionSubject" EntityType="Self.tblQuestionSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubject" EntityType="Self.tblSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTestQuestions" EntityType="Self.tblTestQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTests" EntityType="Self.tblTests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTestUserQuestions" EntityType="Self.tblTestUserQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTestUsers" EntityType="Self.tblTestUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserType" EntityType="Self.tblUserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblGroupMembers_tblGroups" Association="Self.FK_tblGroupMembers_tblGroups">
+            <End Role="tblGroups" EntitySet="tblGroups" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblTests" Association="Self.FK_tblGroupMembers_tblTests">
+            <End Role="tblTests" EntitySet="tblTests" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblUserCreated" Association="Self.FK_tblGroupMembers_tblUserCreated">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblUserModified" Association="Self.FK_tblGroupMembers_tblUserModified">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblUsesID" Association="Self.FK_tblGroupMembers_tblUsesID">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroups_tblUserCreated" Association="Self.FK_tblGroups_tblUserCreated">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroups" EntitySet="tblGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroups_tblUserModified" Association="Self.FK_tblGroups_tblUserModified">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroups" EntitySet="tblGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuestionAnswer_tblAnswers" Association="Self.FK_tblQuestionAnswer_tblAnswers">
+            <End Role="tblAnswers" EntitySet="tblAnswers" />
+            <End Role="tblQuestionAnswers" EntitySet="tblQuestionAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuestionAnswer_tblQuestions" Association="Self.FK_tblQuestionAnswer_tblQuestions">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblQuestionAnswers" EntitySet="tblQuestionAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuestionSubject_tblQuestion" Association="Self.FK_tblQuestionSubject_tblQuestion">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblQuestionSubject" EntitySet="tblQuestionSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuestionSubject_tblSubject" Association="Self.FK_tblQuestionSubject_tblSubject">
+            <End Role="tblSubject" EntitySet="tblSubject" />
+            <End Role="tblQuestionSubject" EntitySet="tblQuestionSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestQuestions_tblQuestions" Association="Self.FK_tblTestQuestions_tblQuestions">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblTestQuestions" EntitySet="tblTestQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestQuestions_tblTests" Association="Self.FK_tblTestQuestions_tblTests">
+            <End Role="tblTests" EntitySet="tblTests" />
+            <End Role="tblTestQuestions" EntitySet="tblTestQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTests_tblUsersCreated" Association="Self.FK_tblTests_tblUsersCreated">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTests" EntitySet="tblTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTests_tblUsersModified" Association="Self.FK_tblTests_tblUsersModified">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTests" EntitySet="tblTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUserQuestions_tblAnswers" Association="Self.FK_tblTestUserQuestions_tblAnswers">
+            <End Role="tblAnswers" EntitySet="tblAnswers" />
+            <End Role="tblTestUserQuestions" EntitySet="tblTestUserQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUserQuestions_tblQuestions" Association="Self.FK_tblTestUserQuestions_tblQuestions">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblTestUserQuestions" EntitySet="tblTestUserQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUserQuestions_tblTestUsers" Association="Self.FK_tblTestUserQuestions_tblTestUsers">
+            <End Role="tblTestUsers" EntitySet="tblTestUsers" />
+            <End Role="tblTestUserQuestions" EntitySet="tblTestUserQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUsers_tblTests" Association="Self.FK_tblTestUsers_tblTests">
+            <End Role="tblTests" EntitySet="tblTests" />
+            <End Role="tblTestUsers" EntitySet="tblTestUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUsers_tblUsers" Association="Self.FK_tblTestUsers_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTestUsers" EntitySet="tblTestUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUID_tblUserCreatedBy" Association="Self.FK_tblUsersUID_tblUserCreatedBy">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUsers1" EntitySet="tblUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUID_tblUserModifiedBY" Association="Self.FK_tblUsersUID_tblUserModifiedBY">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUsers1" EntitySet="tblUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OnlineTestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAnswer">
+          <Key>
+            <PropertyRef Name="AnsID" />
+          </Key>
+          <Property Name="AnsID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Answer" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblQuestionAnswers" Relationship="Self.FK_tblQuestionAnswer_tblAnswers" FromRole="tblAnswers" ToRole="tblQuestionAnswers" />
+          <NavigationProperty Name="tblTestUserQuestions" Relationship="Self.FK_tblTestUserQuestions_tblAnswers" FromRole="tblAnswers" ToRole="tblTestUserQuestions" />
+        </EntityType>
+        <EntityType Name="tblGroupMember">
+          <Key>
+            <PropertyRef Name="GMID" />
+          </Key>
+          <Property Name="GMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="TestID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedByID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="tblGroup" Relationship="Self.FK_tblGroupMembers_tblGroups" FromRole="tblGroupMembers" ToRole="tblGroups" />
+          <NavigationProperty Name="tblTest" Relationship="Self.FK_tblGroupMembers_tblTests" FromRole="tblGroupMembers" ToRole="tblTests" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblGroupMembers_tblUserCreated" FromRole="tblGroupMembers" ToRole="tblUsers" />
+          <NavigationProperty Name="tblUser1" Relationship="Self.FK_tblGroupMembers_tblUserModified" FromRole="tblGroupMembers" ToRole="tblUsers" />
+          <NavigationProperty Name="tblUser2" Relationship="Self.FK_tblGroupMembers_tblUsesID" FromRole="tblGroupMembers" ToRole="tblUsers" />
+        </EntityType>
+        <EntityType Name="tblGroup">
+          <Key>
+            <PropertyRef Name="GID" />
+          </Key>
+          <Property Name="GID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedByID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="tblGroupMembers" Relationship="Self.FK_tblGroupMembers_tblGroups" FromRole="tblGroups" ToRole="tblGroupMembers" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblGroups_tblUserCreated" FromRole="tblGroups" ToRole="tblUsers" />
+          <NavigationProperty Name="tblUser1" Relationship="Self.FK_tblGroups_tblUserModified" FromRole="tblGroups" ToRole="tblUsers" />
+        </EntityType>
+        <EntityType Name="tblQuestionAnswer">
+          <Key>
+            <PropertyRef Name="QAID" />
+          </Key>
+          <Property Name="QAID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="Int64" />
+          <Property Name="AnswerID" Type="Int64" />
+          <Property Name="IsCorrectAns" Type="Boolean" />
+          <NavigationProperty Name="tblAnswer" Relationship="Self.FK_tblQuestionAnswer_tblAnswers" FromRole="tblQuestionAnswers" ToRole="tblAnswers" />
+          <NavigationProperty Name="tblQuestion" Relationship="Self.FK_tblQuestionAnswer_tblQuestions" FromRole="tblQuestionAnswers" ToRole="tblQuestions" />
+        </EntityType>
+        <EntityType Name="tblQuestion">
+          <Key>
+            <PropertyRef Name="QID" />
+          </Key>
+          <Property Name="QID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="QuestionLevelID" Type="Int32" />
+          <Property Name="IsStudyType" Type="Boolean" />
+          <Property Name="IsMultipleAns" Type="Boolean" />
+          <NavigationProperty Name="tblQuestionAnswers" Relationship="Self.FK_tblQuestionAnswer_tblQuestions" FromRole="tblQuestions" ToRole="tblQuestionAnswers" />
+          <NavigationProperty Name="tblQuestionSubjects" Relationship="Self.FK_tblQuestionSubject_tblQuestion" FromRole="tblQuestions" ToRole="tblQuestionSubject" />
+          <NavigationProperty Name="tblTestQuestions" Relationship="Self.FK_tblTestQuestions_tblQuestions" FromRole="tblQuestions" ToRole="tblTestQuestions" />
+          <NavigationProperty Name="tblTestUserQuestions" Relationship="Self.FK_tblTestUserQuestions_tblQuestions" FromRole="tblQuestions" ToRole="tblTestUserQuestions" />
+        </EntityType>
+        <EntityType Name="tblQuestionSubject">
+          <Key>
+            <PropertyRef Name="QSID" />
+          </Key>
+          <Property Name="QSID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionID" Type="Int64" />
+          <Property Name="SubjectID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="tblQuestion" Relationship="Self.FK_tblQuestionSubject_tblQuestion" FromRole="tblQuestionSubject" ToRole="tblQuestions" />
+          <NavigationProperty Name="tblSubject" Relationship="Self.FK_tblQuestionSubject_tblSubject" FromRole="tblQuestionSubject" ToRole="tblSubject" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="tblQuestionSubjects" Relationship="Self.FK_tblQuestionSubject_tblSubject" FromRole="tblSubject" ToRole="tblQuestionSubject" />
+        </EntityType>
+        <EntityType Name="tblTestQuestion">
+          <Key>
+            <PropertyRef Name="TestQID" />
+          </Key>
+          <Property Name="TestQID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestID" Type="Int32" />
+          <Property Name="QuestionID" Type="Int64" />
+          <NavigationProperty Name="tblQuestion" Relationship="Self.FK_tblTestQuestions_tblQuestions" FromRole="tblTestQuestions" ToRole="tblQuestions" />
+          <NavigationProperty Name="tblTest" Relationship="Self.FK_tblTestQuestions_tblTests" FromRole="tblTestQuestions" ToRole="tblTests" />
+        </EntityType>
+        <EntityType Name="tblTest">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TestDuration" Type="Time" Precision="7" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedByID" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblGroupMembers" Relationship="Self.FK_tblGroupMembers_tblTests" FromRole="tblTests" ToRole="tblGroupMembers" />
+          <NavigationProperty Name="tblTestQuestions" Relationship="Self.FK_tblTestQuestions_tblTests" FromRole="tblTests" ToRole="tblTestQuestions" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblTests_tblUsersCreated" FromRole="tblTests" ToRole="tblUsers" />
+          <NavigationProperty Name="tblUser1" Relationship="Self.FK_tblTests_tblUsersModified" FromRole="tblTests" ToRole="tblUsers" />
+          <NavigationProperty Name="tblTestUsers" Relationship="Self.FK_tblTestUsers_tblTests" FromRole="tblTests" ToRole="tblTestUsers" />
+        </EntityType>
+        <EntityType Name="tblTestUserQuestion">
+          <Key>
+            <PropertyRef Name="TestUQID" />
+          </Key>
+          <Property Name="TestUQID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestUserID" Type="Int64" />
+          <Property Name="QuestionID" Type="Int64" />
+          <Property Name="SelectedAnswerID" Type="Int64" />
+          <Property Name="TimeTakenToMarkAnswer" Type="Time" Precision="7" />
+          <NavigationProperty Name="tblAnswer" Relationship="Self.FK_tblTestUserQuestions_tblAnswers" FromRole="tblTestUserQuestions" ToRole="tblAnswers" />
+          <NavigationProperty Name="tblQuestion" Relationship="Self.FK_tblTestUserQuestions_tblQuestions" FromRole="tblTestUserQuestions" ToRole="tblQuestions" />
+          <NavigationProperty Name="tblTestUser" Relationship="Self.FK_tblTestUserQuestions_tblTestUsers" FromRole="tblTestUserQuestions" ToRole="tblTestUsers" />
+        </EntityType>
+        <EntityType Name="tblTestUser">
+          <Key>
+            <PropertyRef Name="TestUID" />
+          </Key>
+          <Property Name="TestUID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="TimeTaken" Type="Time" Precision="7" />
+          <Property Name="MarksObtained" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TestGivenDate" Type="DateTime" Precision="3" />
+          <Property Name="TestStartTime" Type="Time" Precision="7" />
+          <Property Name="TestEndTime" Type="Time" Precision="7" />
+          <NavigationProperty Name="tblTest" Relationship="Self.FK_tblTestUsers_tblTests" FromRole="tblTestUsers" ToRole="tblTests" />
+          <NavigationProperty Name="tblTestUserQuestions" Relationship="Self.FK_tblTestUserQuestions_tblTestUsers" FromRole="tblTestUsers" ToRole="tblTestUserQuestions" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblTestUsers_tblUsers" FromRole="tblTestUsers" ToRole="tblUsers" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="UserTypeID" Type="Int32" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedByID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="tblGroupMembers" Relationship="Self.FK_tblGroupMembers_tblUserCreated" FromRole="tblUsers" ToRole="tblGroupMembers" />
+          <NavigationProperty Name="tblGroupMembers1" Relationship="Self.FK_tblGroupMembers_tblUserModified" FromRole="tblUsers" ToRole="tblGroupMembers" />
+          <NavigationProperty Name="tblGroupMembers2" Relationship="Self.FK_tblGroupMembers_tblUsesID" FromRole="tblUsers" ToRole="tblGroupMembers" />
+          <NavigationProperty Name="tblGroups" Relationship="Self.FK_tblGroups_tblUserCreated" FromRole="tblUsers" ToRole="tblGroups" />
+          <NavigationProperty Name="tblGroups1" Relationship="Self.FK_tblGroups_tblUserModified" FromRole="tblUsers" ToRole="tblGroups" />
+          <NavigationProperty Name="tblTests" Relationship="Self.FK_tblTests_tblUsersCreated" FromRole="tblUsers" ToRole="tblTests" />
+          <NavigationProperty Name="tblTests1" Relationship="Self.FK_tblTests_tblUsersModified" FromRole="tblUsers" ToRole="tblTests" />
+          <NavigationProperty Name="tblTestUsers" Relationship="Self.FK_tblTestUsers_tblUsers" FromRole="tblUsers" ToRole="tblTestUsers" />
+          <NavigationProperty Name="tblUsers1" Relationship="Self.FK_tblUsersUID_tblUserCreatedBy" FromRole="tblUsers" ToRole="tblUsers1" />
+          <NavigationProperty Name="tblUser1" Relationship="Self.FK_tblUsersUID_tblUserCreatedBy" FromRole="tblUsers1" ToRole="tblUsers" />
+          <NavigationProperty Name="tblUsers11" Relationship="Self.FK_tblUsersUID_tblUserModifiedBY" FromRole="tblUsers" ToRole="tblUsers1" />
+          <NavigationProperty Name="tblUser2" Relationship="Self.FK_tblUsersUID_tblUserModifiedBY" FromRole="tblUsers1" ToRole="tblUsers" />
+        </EntityType>
+        <EntityType Name="tblUserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_tblQuestionAnswer_tblAnswers">
+          <End Role="tblAnswers" Type="Self.tblAnswer" Multiplicity="0..1" />
+          <End Role="tblQuestionAnswers" Type="Self.tblQuestionAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAnswers">
+              <PropertyRef Name="AnsID" />
+            </Principal>
+            <Dependent Role="tblQuestionAnswers">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUserQuestions_tblAnswers">
+          <End Role="tblAnswers" Type="Self.tblAnswer" Multiplicity="0..1" />
+          <End Role="tblTestUserQuestions" Type="Self.tblTestUserQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAnswers">
+              <PropertyRef Name="AnsID" />
+            </Principal>
+            <Dependent Role="tblTestUserQuestions">
+              <PropertyRef Name="SelectedAnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblGroups">
+          <End Role="tblGroups" Type="Self.tblGroup" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGroups">
+              <PropertyRef Name="GID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblTests">
+          <End Role="tblTests" Type="Self.tblTest" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTests">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblUserCreated">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblUserModified">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroupMembers_tblUsesID">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblGroupMembers" Type="Self.tblGroupMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroupMembers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroups_tblUserCreated">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblGroups" Type="Self.tblGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroups">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGroups_tblUserModified">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblGroups" Type="Self.tblGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblGroups">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblQuestionAnswer_tblQuestions">
+          <End Role="tblQuestions" Type="Self.tblQuestion" Multiplicity="0..1" />
+          <End Role="tblQuestionAnswers" Type="Self.tblQuestionAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblQuestionAnswers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblQuestionSubject_tblQuestion">
+          <End Role="tblQuestions" Type="Self.tblQuestion" Multiplicity="0..1" />
+          <End Role="tblQuestionSubject" Type="Self.tblQuestionSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblQuestionSubject">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestQuestions_tblQuestions">
+          <End Role="tblQuestions" Type="Self.tblQuestion" Multiplicity="0..1" />
+          <End Role="tblTestQuestions" Type="Self.tblTestQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblTestQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUserQuestions_tblQuestions">
+          <End Role="tblQuestions" Type="Self.tblQuestion" Multiplicity="0..1" />
+          <End Role="tblTestUserQuestions" Type="Self.tblTestUserQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblQuestions">
+              <PropertyRef Name="QID" />
+            </Principal>
+            <Dependent Role="tblTestUserQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblQuestionSubject_tblSubject">
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+          <End Role="tblQuestionSubject" Type="Self.tblQuestionSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="SID" />
+            </Principal>
+            <Dependent Role="tblQuestionSubject">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestQuestions_tblTests">
+          <End Role="tblTests" Type="Self.tblTest" Multiplicity="0..1" />
+          <End Role="tblTestQuestions" Type="Self.tblTestQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTests">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="tblTestQuestions">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTests_tblUsersCreated">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTests" Type="Self.tblTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblTests">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTests_tblUsersModified">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTests" Type="Self.tblTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblTests">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUsers_tblTests">
+          <End Role="tblTests" Type="Self.tblTest" Multiplicity="0..1" />
+          <End Role="tblTestUsers" Type="Self.tblTestUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTests">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="tblTestUsers">
+              <PropertyRef Name="TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUserQuestions_tblTestUsers">
+          <End Role="tblTestUsers" Type="Self.tblTestUser" Multiplicity="0..1" />
+          <End Role="tblTestUserQuestions" Type="Self.tblTestUserQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTestUsers">
+              <PropertyRef Name="TestUID" />
+            </Principal>
+            <Dependent Role="tblTestUserQuestions">
+              <PropertyRef Name="TestUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTestUsers_tblUsers">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblTestUsers" Type="Self.tblTestUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblTestUsers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUID_tblUserCreatedBy">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblUsers1" Type="Self.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblUsers1">
+              <PropertyRef Name="CreatedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUID_tblUserModifiedBY">
+          <End Role="tblUsers" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tblUsers1" Type="Self.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="tblUsers1">
+              <PropertyRef Name="ModifiedByID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OnlineTestDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAnswers" EntityType="Self.tblAnswer" />
+          <EntitySet Name="tblGroupMembers" EntityType="Self.tblGroupMember" />
+          <EntitySet Name="tblGroups" EntityType="Self.tblGroup" />
+          <EntitySet Name="tblQuestionAnswers" EntityType="Self.tblQuestionAnswer" />
+          <EntitySet Name="tblQuestions" EntityType="Self.tblQuestion" />
+          <EntitySet Name="tblQuestionSubjects" EntityType="Self.tblQuestionSubject" />
+          <EntitySet Name="tblSubjects" EntityType="Self.tblSubject" />
+          <EntitySet Name="tblTestQuestions" EntityType="Self.tblTestQuestion" />
+          <EntitySet Name="tblTests" EntityType="Self.tblTest" />
+          <EntitySet Name="tblTestUserQuestions" EntityType="Self.tblTestUserQuestion" />
+          <EntitySet Name="tblTestUsers" EntityType="Self.tblTestUser" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <EntitySet Name="tblUserTypes" EntityType="Self.tblUserType" />
+          <AssociationSet Name="FK_tblQuestionAnswer_tblAnswers" Association="Self.FK_tblQuestionAnswer_tblAnswers">
+            <End Role="tblAnswers" EntitySet="tblAnswers" />
+            <End Role="tblQuestionAnswers" EntitySet="tblQuestionAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUserQuestions_tblAnswers" Association="Self.FK_tblTestUserQuestions_tblAnswers">
+            <End Role="tblAnswers" EntitySet="tblAnswers" />
+            <End Role="tblTestUserQuestions" EntitySet="tblTestUserQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblGroups" Association="Self.FK_tblGroupMembers_tblGroups">
+            <End Role="tblGroups" EntitySet="tblGroups" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblTests" Association="Self.FK_tblGroupMembers_tblTests">
+            <End Role="tblTests" EntitySet="tblTests" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblUserCreated" Association="Self.FK_tblGroupMembers_tblUserCreated">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblUserModified" Association="Self.FK_tblGroupMembers_tblUserModified">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroupMembers_tblUsesID" Association="Self.FK_tblGroupMembers_tblUsesID">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroupMembers" EntitySet="tblGroupMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroups_tblUserCreated" Association="Self.FK_tblGroups_tblUserCreated">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroups" EntitySet="tblGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGroups_tblUserModified" Association="Self.FK_tblGroups_tblUserModified">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblGroups" EntitySet="tblGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuestionAnswer_tblQuestions" Association="Self.FK_tblQuestionAnswer_tblQuestions">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblQuestionAnswers" EntitySet="tblQuestionAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuestionSubject_tblQuestion" Association="Self.FK_tblQuestionSubject_tblQuestion">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblQuestionSubject" EntitySet="tblQuestionSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestQuestions_tblQuestions" Association="Self.FK_tblTestQuestions_tblQuestions">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblTestQuestions" EntitySet="tblTestQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUserQuestions_tblQuestions" Association="Self.FK_tblTestUserQuestions_tblQuestions">
+            <End Role="tblQuestions" EntitySet="tblQuestions" />
+            <End Role="tblTestUserQuestions" EntitySet="tblTestUserQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuestionSubject_tblSubject" Association="Self.FK_tblQuestionSubject_tblSubject">
+            <End Role="tblSubject" EntitySet="tblSubjects" />
+            <End Role="tblQuestionSubject" EntitySet="tblQuestionSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestQuestions_tblTests" Association="Self.FK_tblTestQuestions_tblTests">
+            <End Role="tblTests" EntitySet="tblTests" />
+            <End Role="tblTestQuestions" EntitySet="tblTestQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTests_tblUsersCreated" Association="Self.FK_tblTests_tblUsersCreated">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTests" EntitySet="tblTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTests_tblUsersModified" Association="Self.FK_tblTests_tblUsersModified">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTests" EntitySet="tblTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUsers_tblTests" Association="Self.FK_tblTestUsers_tblTests">
+            <End Role="tblTests" EntitySet="tblTests" />
+            <End Role="tblTestUsers" EntitySet="tblTestUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUserQuestions_tblTestUsers" Association="Self.FK_tblTestUserQuestions_tblTestUsers">
+            <End Role="tblTestUsers" EntitySet="tblTestUsers" />
+            <End Role="tblTestUserQuestions" EntitySet="tblTestUserQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTestUsers_tblUsers" Association="Self.FK_tblTestUsers_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTestUsers" EntitySet="tblTestUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUID_tblUserCreatedBy" Association="Self.FK_tblUsersUID_tblUserCreatedBy">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUsers1" EntitySet="tblUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUID_tblUserModifiedBY" Association="Self.FK_tblUsersUID_tblUserModifiedBY">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUsers1" EntitySet="tblUsers" />
+          </AssociationSet>
+          <EntitySet Name="tblMenus" EntityType="OnlineTestDBModel.tblMenu" />
+        </EntityContainer>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImageClass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="IsParent" Type="Boolean" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="IsAdminMenu" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OnlineTestDBModelStoreContainer" CdmEntityContainer="OnlineTestDBEntities">
+          <EntitySetMapping Name="tblAnswers">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblAnswer">
+              <MappingFragment StoreEntitySet="tblAnswers">
+                <ScalarProperty Name="AnsID" ColumnName="AnsID" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="AnswerDesc" ColumnName="AnswerDesc" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGroupMembers">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblGroupMember">
+              <MappingFragment StoreEntitySet="tblGroupMembers">
+                <ScalarProperty Name="GMID" ColumnName="GMID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGroups">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblGroup">
+              <MappingFragment StoreEntitySet="tblGroups">
+                <ScalarProperty Name="GID" ColumnName="GID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblQuestionAnswers">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblQuestionAnswer">
+              <MappingFragment StoreEntitySet="tblQuestionAnswers">
+                <ScalarProperty Name="QAID" ColumnName="QAID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="IsCorrectAns" ColumnName="IsCorrectAns" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblQuestions">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblQuestion">
+              <MappingFragment StoreEntitySet="tblQuestions">
+                <ScalarProperty Name="QID" ColumnName="QID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="QuestionDesc" ColumnName="QuestionDesc" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="QuestionLevelID" ColumnName="QuestionLevelID" />
+                <ScalarProperty Name="IsStudyType" ColumnName="IsStudyType" />
+                <ScalarProperty Name="IsMultipleAns" ColumnName="IsMultipleAns" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblQuestionSubjects">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblQuestionSubject">
+              <MappingFragment StoreEntitySet="tblQuestionSubject">
+                <ScalarProperty Name="QSID" ColumnName="QSID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubjects">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblSubject">
+              <MappingFragment StoreEntitySet="tblSubject">
+                <ScalarProperty Name="SID" ColumnName="SID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTestQuestions">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblTestQuestion">
+              <MappingFragment StoreEntitySet="tblTestQuestions">
+                <ScalarProperty Name="TestQID" ColumnName="TestQID" />
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTests">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblTest">
+              <MappingFragment StoreEntitySet="tblTests">
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="TestName" ColumnName="TestName" />
+                <ScalarProperty Name="TestDuration" ColumnName="TestDuration" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTestUserQuestions">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblTestUserQuestion">
+              <MappingFragment StoreEntitySet="tblTestUserQuestions">
+                <ScalarProperty Name="TestUQID" ColumnName="TestUQID" />
+                <ScalarProperty Name="TestUserID" ColumnName="TestUserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SelectedAnswerID" ColumnName="SelectedAnswerID" />
+                <ScalarProperty Name="TimeTakenToMarkAnswer" ColumnName="TimeTakenToMarkAnswer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTestUsers">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblTestUser">
+              <MappingFragment StoreEntitySet="tblTestUsers">
+                <ScalarProperty Name="TestUID" ColumnName="TestUID" />
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+                <ScalarProperty Name="MarksObtained" ColumnName="MarksObtained" />
+                <ScalarProperty Name="TestGivenDate" ColumnName="TestGivenDate" />
+                <ScalarProperty Name="TestStartTime" ColumnName="TestStartTime" />
+                <ScalarProperty Name="TestEndTime" ColumnName="TestEndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserTypes">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblUserType">
+              <MappingFragment StoreEntitySet="tblUserType">
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="UserTypeText" ColumnName="UserTypeText" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMenus">
+            <EntityTypeMapping TypeName="OnlineTestDBModel.tblMenu">
+              <MappingFragment StoreEntitySet="tblMenu">
+                <ScalarProperty Name="IsAdminMenu" ColumnName="IsAdminMenu" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="ImageClass" ColumnName="ImageClass" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="NameOption" ColumnName="NameOption" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

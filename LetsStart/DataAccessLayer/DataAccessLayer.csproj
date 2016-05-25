@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A10AEF29-B93C-49F4-A499-63DD701754F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Entity.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DALMenu.cs" />
+    <Compile Include="DALUser.cs" />
+    <Compile Include="OnlineTestDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineTestDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineTestDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineTestDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineTestDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblAnswer.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblGroup.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblGroupMember.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMenu.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblQuestion.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblQuestionAnswer.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblQuestionSubject.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSubject.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTest.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTestQuestion.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTestUser.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTestUserQuestion.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserType.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModalLayer\ModelLayer.csproj">
+      <Project>{753410ba-9727-49d9-8d5b-95e01d42acbc}</Project>
+      <Name>ModelLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="OnlineTestDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineTestDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="OnlineTestDB.edmx.diagram">
+      <DependentUpon>OnlineTestDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OnlineTestDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineTestDB.edmx</DependentUpon>
+      <LastGenOutput>OnlineTestDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OnlineTestDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineTestDB.edmx</DependentUpon>
+      <LastGenOutput>OnlineTestDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
