@@ -5,21 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using ModelLayer;
 namespace LetsStart.Controllers
 {
     public class ErrorController : Controller
     {
-        public void Index(string message, string url, int line, int column, string stack)
+        public void Index(MLError objMlError)
         {
+            ErrorSignal objErr = new ErrorSignal();
             ErrorSignal.FromCurrentContext()
                 .Raise(new JSException
                 {
-                    Message = message,
-                    Url = url,
-                    LineNumber = line,
-                    Column = column,
-                    ErrorStack = stack
+                    Message = objMlError.Message,
+                    Url = objMlError.Url,
+                    LineNumber = objMlError.LineNumber,
+                    Column = objMlError.Column,
+                    ErrorStack = objMlError.ErrorStack,
+                    User=objMlError.User,
+                    Application=objMlError.Application,
                 });
         }
     }

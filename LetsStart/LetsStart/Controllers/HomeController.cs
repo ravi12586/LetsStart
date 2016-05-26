@@ -10,12 +10,17 @@ namespace LetsStart.Controllers
     public class HomeController : Controller
     {
         BLUser objBLUser = null;
+
+        #region Login User View
         [HttpGet]
         public ActionResult Login()
         {
             MLUser objMLUser = new MLUser();
             return View(objMLUser);
         }
+        #endregion
+
+        #region Login User
         [HttpPost]
         public ActionResult Login(MLUser objMLUser)
         {
@@ -42,67 +47,9 @@ namespace LetsStart.Controllers
                 return View();
             }
         }
+        #endregion
 
-
-
-
-
-
-
-        public ActionResult Error()
-        {
-            return View();
-        }
-
-        public ActionResult MorrisCharts()
-        {
-            return View("MorrisCharts");
-        }
-
-        public ActionResult Tables()
-        {
-            return View("Tables");
-        }
-
-        public ActionResult Forms()
-        {
-            return View("Forms");
-        }
-
-        public ActionResult Panels()
-        {
-            return View("Panels");
-        }
-
-        public ActionResult Buttons()
-        {
-            return View("Buttons");
-        }
-
-        public ActionResult Notifications()
-        {
-            return View("Notifications");
-        }
-
-        public ActionResult Typography()
-        {
-            return View("Typography");
-        }
-
-        public ActionResult Icons()
-        {
-            return View("Icons");
-        }
-
-        public ActionResult Grid()
-        {
-            return View("Grid");
-        }
-
-        public ActionResult Blank()
-        {
-            return View("Blank");
-        }
+        
 
 
 

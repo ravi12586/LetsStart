@@ -8,3 +8,13 @@ F:\Visual Studio2013\LetsStart\DataAccessLayer\bin\Debug\EntityFramework.xml
 F:\Visual Studio2013\LetsStart\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 F:\Visual Studio2013\LetsStart\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 F:\Visual Studio2013\LetsStart\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\bin\Debug\EntityFramework.dll
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\bin\Debug\ModalLayer.dll
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\bin\Debug\ModalLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\bin\Debug\EntityFramework.xml
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+F:\GitHubProject\LetsStart\LetsStart\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

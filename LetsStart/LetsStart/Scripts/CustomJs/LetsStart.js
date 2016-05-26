@@ -1,0 +1,4 @@
+﻿var LetsStart= {
+    AjaxCall: {},
+    Questions: {}
+};

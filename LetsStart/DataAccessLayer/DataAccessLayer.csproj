@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALAdminHome.cs" />
     <Compile Include="DALMenu.cs" />
     <Compile Include="DALUser.cs" />
     <Compile Include="OnlineTestDB.Context.cs">

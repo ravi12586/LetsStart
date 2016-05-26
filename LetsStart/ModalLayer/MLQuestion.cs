@@ -12,28 +12,19 @@ namespace ModelLayer
         InActive = 0,
         Active = 1
     }
-  public class MLQuestionAnswers
+  public class MLQuestion
   {
-      public long QId { get; set; }
-      [Required(ErrorMessage = "Please Enter Question")]
-      [Display(Name = "Question")]
-      [StringLength(500, MinimumLength = 3)]
+      public long QID { get; set; }
       public string Question { get; set; }
-
-      [Display(Name = "Question Description")]
-      [StringLength(1000, MinimumLength = 3)]
       public string QuestionDesc { get; set; }
-
-      public Nullable<byte> Status { get; set; }
-
+      public Nullable<int> StatusID { get; set; }
       public Nullable<int> CreatedBy { get; set; }
-
       public Nullable<System.DateTime> CreatedDate { get; set; }
       public Nullable<int> ModifiedBy { get; set; }
       public Nullable<System.DateTime> ModifiedDate { get; set; }
-      [Required(ErrorMessage = "Please Select Question Description is Visisble or Not")]
-      [Display(Name = "Description Visibility")]
-      public bool? IsVisibleQuestionDesc { get; set; }
+      public Nullable<int> QuestionLevelID { get; set; }
+      public Nullable<bool> IsStudyType { get; set; }
+      public Nullable<bool> IsMultipleAns { get; set; }
 
       public IEnumerable<MLAnswer> Answers { get; set; }
   }
@@ -50,6 +41,11 @@ namespace ModelLayer
       
   }
 
+  public class MLResultQuestions
+  {
+      public IList<MLQuestion> ListQuestionAnswers { get; set; }
+
+  }
   public class MLAnswer
   {
       public long AnsId { get; set; }

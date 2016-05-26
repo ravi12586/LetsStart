@@ -9,3 +9,14 @@ F:\Visual Studio2013\LetsStart\BusinessLayer\bin\Debug\EntityFramework.xml
 F:\Visual Studio2013\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 F:\Visual Studio2013\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.dll
 F:\Visual Studio2013\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\BusinessLayer.dll
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\BusinessLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\DataAccessLayer.dll
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\ModalLayer.dll
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\EntityFramework.dll
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\ModalLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\bin\Debug\EntityFramework.xml
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.dll
+F:\GitHubProject\LetsStart\LetsStart\BusinessLayer\obj\Debug\BusinessLayer.pdb
