@@ -22,11 +22,12 @@ namespace ModelLayer
       public Nullable<System.DateTime> CreatedDate { get; set; }
       public Nullable<int> ModifiedBy { get; set; }
       public Nullable<System.DateTime> ModifiedDate { get; set; }
+      public Nullable<int> SubjectID { get; set; }
       public Nullable<int> QuestionLevelID { get; set; }
-      public Nullable<bool> IsStudyType { get; set; }
-      public Nullable<bool> IsMultipleAns { get; set; }
+      public bool? IsStudyType { get; set; }
+      public bool? IsMultipleAns { get; set; }
 
-      public IEnumerable<MLAnswer> Answers { get; set; }
+      public IList<MLAnswer> ListAnswers { get; set; }
   }
 
   public class MLResult
@@ -52,7 +53,7 @@ namespace ModelLayer
       public Nullable<long> QId { get; set; }
       public string Answer { get; set; }
       public string AnswerDesc { get; set; }
-      public Nullable<bool> IsAnsTrue { get; set; }
+      public bool? IsAnsTrue { get; set; }
       public Nullable<int> CreatedBy { get; set; }
       public Nullable<System.DateTime> CreatedDate { get; set; }
       public Nullable<int> ModifiedBy { get; set; }

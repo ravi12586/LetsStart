@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="MLDropdown.cs" />
     <Compile Include="MLMenu.cs" />
     <Compile Include="MLMessages.cs" />
     <Compile Include="MLQuestion.cs" />

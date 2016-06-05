@@ -10,8 +10,7 @@ namespace ModelLayer
     {
         Easy=1,
         Medium,
-        Regular,
-        Important,
+        Hard,
         Critical
     };
 

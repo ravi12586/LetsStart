@@ -439,6 +439,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="usp_GetDropdownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tableName" Type="varchar" Mode="In" />
+          <Parameter Name="colID" Type="varchar" Mode="In" />
+          <Parameter Name="colText" Type="varchar" Mode="In" />
+          <Parameter Name="optional" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="OnlineTestDBModelStoreContainer">
           <EntitySet Name="tblAnswers" EntityType="Self.tblAnswers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblGroupMembers" EntityType="Self.tblGroupMembers" Schema="dbo" store:Type="Tables" />
@@ -1114,6 +1120,12 @@
             <End Role="tblUsers1" EntitySet="tblUsers" />
           </AssociationSet>
           <EntitySet Name="tblMenus" EntityType="OnlineTestDBModel.tblMenu" />
+          <FunctionImport Name="usp_GetDropdownList" ReturnType="Collection(OnlineTestDBModel.usp_GetDropdownList_Result)">
+            <Parameter Name="tableName" Mode="In" Type="String" />
+            <Parameter Name="colID" Mode="In" Type="String" />
+            <Parameter Name="colText" Mode="In" Type="String" />
+            <Parameter Name="optional" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="tblMenu">
           <Key>
@@ -1129,6 +1141,11 @@
           <Property Name="ParentID" Type="Int32" />
           <Property Name="IsAdminMenu" Type="Boolean" />
         </EntityType>
+        <ComplexType Name="usp_GetDropdownList_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1319,6 +1336,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetDropdownList" FunctionName="OnlineTestDBModel.Store.usp_GetDropdownList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineTestDBModel.usp_GetDropdownList_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

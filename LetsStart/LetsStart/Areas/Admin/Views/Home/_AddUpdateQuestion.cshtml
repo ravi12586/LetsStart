@@ -1,90 +1,119 @@
-﻿@model ModelLayer.MLQuestion
+﻿@using ModelLayer;
+@model ModelLayer.MLQuestion
+@{
+    int ansIndex = 0;
+    List<MLDropdown> ListLevel = new List<MLDropdown>();
+    ListLevel.Add(new MLDropdown { ID = (int)QuestionLevel.Easy, Text = QuestionLevel.Easy.ToString() });
+    ListLevel.Add(new MLDropdown { ID = (int)QuestionLevel.Medium, Text = QuestionLevel.Medium.ToString() });
+    ListLevel.Add(new MLDropdown { ID = (int)QuestionLevel.Hard, Text = QuestionLevel.Hard.ToString() });
+    ListLevel.Add(new MLDropdown { ID = (int)QuestionLevel.Critical, Text = QuestionLevel.Critical.ToString() });
 
-<div>
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Question</label>
-            <textarea class="form-control" id="txtQuestion" placeholder="Question"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Question</label>
-            <textarea class="form-control" id="txtQuestionDescription" placeholder="Question Description"></textarea>
-        </div>
+   
 
-        <div class="row">
-            <div class="col-lg-6">
-                <label>Subject</label>
-                <select class="form-control"><option value="6">.NET</option><option value="7">MVC</option></select>
-            </div>
-            <div class="col-lg-6">
-                <label>Level</label>
-                <select class="form-control"><option value="1">Easy</option><option value="2">Hard</option></select>
-            </div>
-
-        </div>
-
-        <div class="row form-inline" style="padding-top:10px;padding-bottom:5px;">
-            <div class="col-lg-6">
-                <label>Read Only?</label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" id="chkReadOnly" value="1"> Yes
-                </label>
-            </div>
-            <div class="col-lg-6">
-                <label>Multiple Answer?</label>
-                <label class="checkbox-inline">
-                    <input type="checkbox" id="chkMultipleAns" value="1"> Yes
-                </label>
-            </div>
-        </div>
-        <hr style="width:100%;align:left;border-bottom-color:blue">
-        <div class="row form-group">
-            <span class="col-lg-2"><label class="right">IsCorrect?</label></span>
-            <span class="col-lg-8 center"><label class="right">Answers</label></span>
-            <span class="col-lg-2"><label class="right">Remove</label></span>
-            
-        </div>
-        <div class="form-group" id="dvAnswerSection">
-            <div class="row" id="ansRow_1">
-                <div class="col-lg-2"><input type="checkbox" id="chkAns_1" value="1"></div>
-                <div class="col-lg-8 ">
-                    <input type="text" class="form-control col-lg-8" id="txtAns_1" placeholder="Please enter answer" />
+        <div>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Question</label>
+                    @Html.TextAreaFor(x => x.Question, new { @class="form-control", id="txtQuestion", placeholder="Question"})
                 </div>
-                <div class="col-lg-2 center-block ">
-                    <a href="#" onclick="RemoveAns(this)" class="btn btn-danger btn-sm">
-                        <span class="glyphicon glyphicon-trash"></span>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Question</label>
+                    @Html.TextAreaFor(x => x.QuestionDesc, new { @class = "form-control", id = "txtQuestionDescription", placeholder = "Question Description" })
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label>Subject</label>
+                        @Html.DropDownListFor(x => x.SubjectID, new SelectList(ViewBag.ListSubject as List<MLDropdown>, "ID", "Text", Model.SubjectID), new { @class = "form-control", id = "ddlSubject" })
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Level</label>
+                        @Html.DropDownListFor(x => x.SubjectID, new SelectList(ListLevel, "ID", "Text",  Model.SubjectID), new { @class = "form-control", id = "ddlLevel" })
+                    </div>
+
+                </div>
+
+                <div class="row form-inline" style="padding-top:10px;padding-bottom:5px;">
+                    <div class="col-lg-6">
+                        <label>Study Only?</label>
+                        <label class="checkbox-inline">
+                            @Html.CheckBox("chkStudyType", Model.IsStudyType??false, new { id = "chkStudyType"}) Yes
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Multiple Answer?</label>
+                        <label class="checkbox-inline">
+                            @Html.CheckBox("chkMultipleAns", Model.IsMultipleAns ?? false, new { id = "chkMultipleAns"}) Yes
+                        </label>
+                    </div>
+                </div>
+                <hr style="width:100%;align:left;border-bottom-color:blue">
+                <div class="row form-group">
+                    <span class="col-lg-2"><label class="right">IsCorrect?</label></span>
+                    <span class="col-lg-8 center"><label class="right">Answers</label></span>
+                    <span class="col-lg-2"><label class="right">Remove</label></span>
+                </div>
+                <div class="form-group" id="dvAnswerSection">
+
+                   @foreach (var q in Model.ListAnswers)
+                   {
+                    <div class="row" id="ansRow_@ansIndex">
+                        <div class="col-lg-1">
+                            <input type="checkbox" id="chkAns_@ansIndex" value="1">
+                           
+                        </div>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(x => q.Answer, new{id="txtAns_"+@ansIndex, @class="form-control col-lg-8", placeholder="Please enter answer"})
+                        </div>
+                        <div class="col-lg-1 center-block ">
+                            <a href="#" onclick="RemoveAns(this)" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </div>
+                    </div>
+                       ansIndex++;
+                   }
+
+
+                    @*<div class="row" id="ansRow_1">
+                        <div class="col-lg-2"><input type="checkbox" id="chkAns_1" value="1"></div>
+                        <div class="col-lg-8 ">
+                            <input type="text" class="form-control col-lg-8" id="txtAns_1" placeholder="Please enter answer" />
+                        </div>
+                        <div class="col-lg-2 center-block ">
+                            <a href="#" onclick="RemoveAns(this)" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" id="ansRow_2">
+                        <div class="col-lg-2">
+                            <input type="checkbox" id="chkAns_2" value="1">
+                        </div>
+                        <div class="col-lg-8 ">
+                            <input type="text" class="form-control col-lg-8" id="txtAns_2" placeholder="Please enter answer" />
+                        </div>
+                        <div class="col-lg-2">
+                            <a href="#" onclick="RemoveAns(this)" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </div>
+                    </div>*@
+                </div>
+                <div class="row">
+                    <a href=" #" id="btnAddAns" class="btn btn-warning btn-sm">
+                        Add New Answer <span class="glyphicon glyphicon-plus"></span>
+
                     </a>
                 </div>
-            </div>
-            <div class="row" id="ansRow_2">
-                <div class="col-lg-2">
-                    <input type="checkbox" id="chkAns_2" value="1">
-                </div>
-                <div class="col-lg-8 ">
-                    <input type="text" class="form-control col-lg-8" id="txtAns_2" placeholder="Please enter answer" />
-                </div>
-                <div class="col-lg-2">
-                    <a href="#" onclick="RemoveAns(this)" class="btn btn-danger btn-sm">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
-                </div>
-            </div>
+            </form>
         </div>
-        <div class="row">
-            <a href=" #" id="btnAddAns" class="btn btn-warning btn-sm">
-                Add New Answer <span class="glyphicon glyphicon-plus"></span>
-
-            </a>
-        </div>
-    </form>
-</div>
-
+}
 <script>
     $('#btnAddAns').click(function () {
-        debugger
         var nextIndex = $('#dvAnswerSection').children(':last').attr('id').split('_')[1] + 1;
         var ansStr = '<div class="row" id="ansRow_' + nextIndex + '">';
-        ansStr+=    '<div class="col-lg-2"><input type="checkbox" id="chkAns_' + nextIndex + '" value="1"> </div>';
+        ansStr += '<div class="col-lg-2"><input type="checkbox" id="chkAns_' + nextIndex + '" value="1"> </div>';
         ansStr += '  <div class="col-lg-8"><input type="text" class="form-control col-lg-8" id="txtAns_' + nextIndex + '" placeholder="Please enter answer" /> </div>';
         ansStr += ' <div class="col-lg-2"> <a href="#" onclick="RemoveAns(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a> </div> ';
         ansStr += '</div>';

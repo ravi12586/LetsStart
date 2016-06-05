@@ -12,6 +12,9 @@ namespace DataAccessLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class OnlineTestDBEntities : DbContext
     {
@@ -39,5 +42,26 @@ namespace DataAccessLayer
         public DbSet<tblUser> tblUsers { get; set; }
         public DbSet<tblUserType> tblUserTypes { get; set; }
         public DbSet<tblMenu> tblMenus { get; set; }
+    
+        public virtual ObjectResult<usp_GetDropdownList_Result> usp_GetDropdownList(string tableName, string colID, string colText, string optional)
+        {
+            var tableNameParameter = tableName != null ?
+                new ObjectParameter("tableName", tableName) :
+                new ObjectParameter("tableName", typeof(string));
+    
+            var colIDParameter = colID != null ?
+                new ObjectParameter("colID", colID) :
+                new ObjectParameter("colID", typeof(string));
+    
+            var colTextParameter = colText != null ?
+                new ObjectParameter("colText", colText) :
+                new ObjectParameter("colText", typeof(string));
+    
+            var optionalParameter = optional != null ?
+                new ObjectParameter("optional", optional) :
+                new ObjectParameter("optional", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetDropdownList_Result>("usp_GetDropdownList", tableNameParameter, colIDParameter, colTextParameter, optionalParameter);
+        }
     }
 }

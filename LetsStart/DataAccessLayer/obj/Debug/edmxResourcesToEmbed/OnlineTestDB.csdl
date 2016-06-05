@@ -567,6 +567,12 @@
       <End Role="tblUsers1" EntitySet="tblUsers" />
     </AssociationSet>
     <EntitySet Name="tblMenus" EntityType="OnlineTestDBModel.tblMenu" />
+    <FunctionImport Name="usp_GetDropdownList" ReturnType="Collection(OnlineTestDBModel.usp_GetDropdownList_Result)">
+      <Parameter Name="tableName" Mode="In" Type="String" />
+      <Parameter Name="colID" Mode="In" Type="String" />
+      <Parameter Name="colText" Mode="In" Type="String" />
+      <Parameter Name="optional" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="tblMenu">
     <Key>
@@ -582,4 +588,9 @@
     <Property Name="ParentID" Type="Int32" />
     <Property Name="IsAdminMenu" Type="Boolean" />
   </EntityType>
+  <ComplexType Name="usp_GetDropdownList_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Text" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ParentID" Nullable="true" />
+  </ComplexType>
 </Schema>

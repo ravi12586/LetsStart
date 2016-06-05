@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BLAdmin.cs" />
     <Compile Include="BLAdminHome.cs" />
+    <Compile Include="BLCommon.cs" />
     <Compile Include="BLMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -53,6 +53,7 @@
     <Compile Include="DALAdminHome.cs" />
     <Compile Include="DALMenu.cs" />
     <Compile Include="DALUser.cs" />
+    <Compile Include="DLCommon.cs" />
     <Compile Include="OnlineTestDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +110,9 @@
       <DependentUpon>OnlineTestDB.tt</DependentUpon>
     </Compile>
     <Compile Include="tblUserType.cs">
+      <DependentUpon>OnlineTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetDropdownList_Result.cs">
       <DependentUpon>OnlineTestDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

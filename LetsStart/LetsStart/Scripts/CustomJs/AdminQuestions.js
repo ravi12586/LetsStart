@@ -8,7 +8,11 @@ Global variables
 ****************************************************************************/
 $(function () {
     $(document).on('click', '#btnAddQuestion', function () {
+        $('#masterModalTitle').text('Add / Update Question');
+        $('#masterModal div:first').animate({ width: '80%' },2000);
+
         LetsStartAdmin.AdminQuestions.LoadAddUpdateQuestionPartial();
+     
         $('#masterModal').modal({
             backdrop: 'static',
             keyboard: true

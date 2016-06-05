@@ -434,6 +434,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="usp_GetDropdownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tableName" Type="varchar" Mode="In" />
+    <Parameter Name="colID" Type="varchar" Mode="In" />
+    <Parameter Name="colText" Type="varchar" Mode="In" />
+    <Parameter Name="optional" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="OnlineTestDBModelStoreContainer">
     <EntitySet Name="tblAnswers" EntityType="Self.tblAnswers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblGroupMembers" EntityType="Self.tblGroupMembers" Schema="dbo" store:Type="Tables" />

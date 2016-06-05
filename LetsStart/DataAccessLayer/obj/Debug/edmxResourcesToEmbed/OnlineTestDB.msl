@@ -185,5 +185,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetDropdownList" FunctionName="OnlineTestDBModel.Store.usp_GetDropdownList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineTestDBModel.usp_GetDropdownList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

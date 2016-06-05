@@ -11,6 +11,7 @@ namespace LetsStart.Areas.Admin.Controllers
     {
         BLUser objBLUser = null;
         BLAdminHome objBLAdminHome = null;
+        BLCommon objBLCommon = null;
         // GET: Admin/Admin
        
         public ActionResult Default()
@@ -34,7 +35,25 @@ namespace LetsStart.Areas.Admin.Controllers
         public ActionResult AddUpdateQuestionPartial(long? questionID)
         {
             MLQuestion objMLQuestion = new MLQuestion();
-            //if(questionID>0)
+            objBLCommon=new BLCommon();
+            MLDropdownBindOption objMLDDLBind=new MLDropdownBindOption();
+            objMLDDLBind.TableName = "tblSubject";
+            objMLDDLBind.ColID = "SID";
+            objMLDDLBind.ColText = "Subject";
+            objMLDDLBind.Option="";
+            ViewBag.ListSubject = objBLCommon.GetDropdownList(objMLDDLBind).ToList();
+
+            if (questionID > 0)
+            {
+                //Fetch records from database
+            }
+            else
+            {
+                objMLQuestion.ListAnswers = new List<MLAnswer>{
+                    new MLAnswer(),
+                    new MLAnswer()
+                };
+            }
 
             return PartialView("_AddUpdateQuestion", objMLQuestion);
         }

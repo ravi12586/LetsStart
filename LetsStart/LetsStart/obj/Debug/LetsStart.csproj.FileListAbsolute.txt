@@ -45,6 +45,7 @@ F:\Visual Studio2013\LetsStart\LetsStart\bin\EntityFramework.xml
 F:\Visual Studio2013\LetsStart\LetsStart\obj\Debug\LetsStart.csprojResolveAssemblyReference.cache
 F:\Visual Studio2013\LetsStart\LetsStart\obj\Debug\sb-admin-2.Web.dll
 F:\Visual Studio2013\LetsStart\LetsStart\obj\Debug\sb-admin-2.Web.pdb
+F:\GitHubProject\LetsStart\LetsStart\LetsStart\obj\Debug\LetsStart.csprojResolveAssemblyReference.cache
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\sb-admin-2.Web.dll.config
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\sb-admin-2.Web.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\sb-admin-2.Web.pdb
@@ -52,6 +53,7 @@ F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Antlr3.Runtime.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\BusinessLayer.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Elmah.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Elmah.Mvc.dll
+F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\EntityFramework.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Microsoft.AspNet.SignalR.Core.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Microsoft.Owin.dll
@@ -70,9 +72,9 @@ F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\System.Web.WebPages.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\System.Web.WebPages.Razor.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\WebGrease.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\DataAccessLayer.dll
-F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\EntityFramework.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\BusinessLayer.pdb
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\ModalLayer.pdb
+F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\EntityFramework.xml
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Microsoft.AspNet.SignalR.Core.xml
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Microsoft.Owin.xml
@@ -88,7 +90,5 @@ F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\System.Web.WebPages.Razor.xml
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Antlr3.Runtime.pdb
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\Newtonsoft.Json.xml
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\DataAccessLayer.pdb
-F:\GitHubProject\LetsStart\LetsStart\LetsStart\bin\EntityFramework.xml
-F:\GitHubProject\LetsStart\LetsStart\LetsStart\obj\Debug\LetsStart.csprojResolveAssemblyReference.cache
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\obj\Debug\sb-admin-2.Web.dll
 F:\GitHubProject\LetsStart\LetsStart\LetsStart\obj\Debug\sb-admin-2.Web.pdb
