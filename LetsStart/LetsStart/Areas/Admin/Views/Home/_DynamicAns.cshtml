@@ -1,0 +1,20 @@
+﻿@model ModelLayer.MLAnswer
+@{
+    int index=Convert.ToInt32(ViewBag.Index);
+    <div class="row" id="ansRow_@index">
+        <div class="col-lg-1">
+            @*<input type="checkbox" id="" value="1">*@
+            @*@Html.CheckBoxFor(m => item.IsAnsTrue, new { id = "chkAns_" + @index, @name = "@chkAns_"+@index })*@
+            @Html.CheckBox("chkAns_" + @index, new { id = "chkAns_", @checked = Model.IsAnsTrue })
+        </div>
+        <div class="col-lg-10 ">
+            @*<input type="text" class="form-control col-lg-10" id="txtAns_@index" placeholder="Please enter answer" />*@
+            @Html.TextBoxFor(m => Model.Answer, new { id = "txtAns_" + @index, @name = "txtAns_" + @index, @class = "form-control", @placeholder = "Question" })
+        </div>
+        <div class="col-lg-1 center-block ">
+            <a href="#" onclick="RemoveAns(this)" class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </div>
+    </div>
+}
